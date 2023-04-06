@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./Landing.css";
 
-function Landing({ user, setUser }) {
+function Landing({ user, setUser, organizations }) {
   const history = useHistory();
 
   const handleSignUpClick = () => {
@@ -10,8 +10,9 @@ function Landing({ user, setUser }) {
   };
 
   const handleLearnMoreClick = () => {
-    // Add the code to navigate to the "Learn More" page here
+    history.push("/learnmore"); // Navigate to the Learn More page
   };
+  
 
   return (
     <div className="homepage">

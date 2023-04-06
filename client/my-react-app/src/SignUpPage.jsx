@@ -1,13 +1,23 @@
 import React from "react";
-import SignUp from "./SignUp";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import UserDashboard from "./UserDashboard";
 
 function SignUpPage() {
+  const history = useHistory();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Perform form validation and submission here
+    // ...
+    // After successful submission, navigate to UserDashboard component
+    history.push("/dashboard", { name: event.target.name.value, email: event.target.email.value });
+  };
+
   return (
     <div>
       <h1>Sign Up Page</h1>
       <p>Please fill out the form below to sign up for our platform:</p>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" required />
         <br />
@@ -19,10 +29,6 @@ function SignUpPage() {
         <br />
         <button type="submit">Submit</button>
       </form>
-      <p>
-        Already have an account?{" "}
-        <Link to="/">Log in</Link>
-      </p>
     </div>
   );
 }

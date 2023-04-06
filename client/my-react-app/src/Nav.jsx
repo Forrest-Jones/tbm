@@ -1,21 +1,19 @@
-import './App.css';
-import Landing from './Landing.jsx';
-import SignUpPage from './SignUpPage.jsx';
-import Nav from './Nav.jsx';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function App() {
+function Nav() {
   return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/signup" component={SignUpPage} />
-        </Switch>
-      </div>
-    </Router>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/signup">Sign Up</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
-export default Nav
+export default Nav;

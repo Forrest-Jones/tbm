@@ -1,0 +1,80 @@
+body {
+    background-color: #559bd8;
+  }
+  
+  .learn-more {
+    margin: 2rem auto 0;
+    max-width: 1500px;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .learn-more h1 {
+    font-size: 3rem;
+    color: #333333;
+    text-align: center;
+    margin-top: 7rem;
+  }
+  
+  .learn-more .organization-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .learn-more .organization {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    width: 300px;
+    cursor: pointer;
+  }
+  
+  .learn-more .organization:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .learn-more .organization img {
+    max-width: 100%;
+  }
+  
+  .learn-more .organization h3 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-top: 1rem;
+  }
+  
+  .learn-more .organization p {
+    font-size: 1rem;
+    color: #666666;
+    margin-top: 1rem;
+  }
+  
+  .learn-more .selected-organization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .learn-more .selected-organization img {
+    max-width: 100%;
+  }
+  
+  .learn-more .selected-organization h2 {
+    font-size: 2rem;
+    color: #333333;
+    margin-top: 1rem;
+  }
+  
+  .learn-more .selected-organization p {
+    font-size: 1.5rem;
+    color: #812626;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  

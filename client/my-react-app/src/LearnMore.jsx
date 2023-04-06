@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function LearnMore() {
   
@@ -32,8 +33,6 @@ function LearnMore() {
       description:
         "Arnold Group is a Christian organization that specializes in foreign and domestic missions work. The organization offers a seamless donation process for donors, with options for one-time or recurring donations, secure user account management, including personal information, donation history, and tax-deductible receipts, and comprehensive organization profiles that showcase goals, achievements, and financial needs."
     },
-    // Add the remaining organizations here
-
     {
         id: 3,
         name: "Andrade, Garcia and Snyder",
@@ -46,9 +45,9 @@ function LearnMore() {
         financial_needs:
           "Help it child base establish modern knowledge. Serve morning protect health follow. Level real glass study do another. Among attention fill staff young training buy. Onto southern must attack.",
         description:
-          "Andrade, Garcia and Snyder is a Christian organization that aims to revolutionize the way Christian organizations raise and manage funds through a dynamic platform that fosters growth and transparency. The organization uses advanced technologies like Artificial Intelligence(AI) and machine learning to streamline the fundraising process, offers a user-friendly, easy to navigate web experience for donors while ensuring efficient, private, and secured, endowment management for the beneficiary organizations."
-
-        },
+          "Andrade, Garcia and Snyder is a Christian organization that aims to revolutionize the way Christian organizations raise and manage funds through a dynamic platform that fosters growth and transparency. The organization uses advanced technologies like Artificial Intelligence(AI) and machine learning via partners like OpenAI through ChatGPT for admin and site coaching support, Google Brain, and DeepMind to name a few."
+      },
+      
 
         {
             id: 4,
@@ -78,39 +77,40 @@ function LearnMore() {
             description:
             "Miller-Banks is a Christian organization that provides a comprehensive platform for Christian organizations to effectively raise funds for missions work. The platform offers advanced tools for fundraising, donor management, and endowment management that are efficient, private, and secured. The organization aims to ensure long-term sustainability and growth for Christian organizations through its revolutionary platform."
             }
+        ];
 
-  ];
-  
-  const [selectedOrganization, setSelectedOrganization] = useState(null);
 
-  const handleOrganizationClick = (id) => {
-    const organization = organizations.find((org) => org.id === id);
-    setSelectedOrganization(organization);
-  };
-
-  return (
-    <div>
-      <h1>Learn More</h1>
-      <div className="organization-list">
-        {organizations.map((org) => (
-          <div key={org.id} className="organization" onClick={() => handleOrganizationClick(org.id)}>
-            <img src={org.logo} alt={`${org.name} logo`} />
-            <h3>{org.name}</h3>
-            <p>{org.tagline}</p>
-          </div>
-        ))}
-      </div>
-      {selectedOrganization && (
-        <div className="selected-organization">
-          <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
-          <h2>{selectedOrganization.name}</h2>
-          <p>{selectedOrganization.description}</p>
+    const [selectedOrganization, setSelectedOrganization] = useState(null);
+    
+    const handleOrganizationClick = (id) => {
+      const organization = organizations.find((org) => org.id === id);
+      setSelectedOrganization(organization);
+    };
+    
+    return (
+      <div>
+        <h1>Learn More</h1>
+        <div className="organization-list">
+          {organizations.map((org) => (
+            <div key={org.id} className="organization" onClick={() => handleOrganizationClick(org.id)}>
+              <Link to={`/organizations/${org.id}`}>
+                <img src={org.logo} alt={`${org.name} logo`} />
+                <h3>{org.name}</h3>
+                <p>{org.tagline}</p>
+              </Link>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-  );
-}
-
-export default LearnMore;
-
-  
+        {selectedOrganization && (
+          <div className="selected-organization">
+            <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
+            <h2>{selectedOrganization.name}</h2>
+            <p>{selectedOrganization.description}</p>
+          </div>
+        )}
+      </div>
+    );
+    }
+    
+    export default LearnMore;
+    

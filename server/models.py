@@ -3,7 +3,7 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
 
-db = SQLAlchemy()
+db = SQLAlchemy()  #
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

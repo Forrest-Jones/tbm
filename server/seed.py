@@ -1,5 +1,8 @@
 from app import app, db
+from faker import Faker
 from models import User, Organization, Donation, SuccessStory
+
+fake = Faker()
 
 with app.app_context():
     # Delete existing data
@@ -11,38 +14,37 @@ with app.app_context():
 
     # Create users
     print("Creating users...")
-    user1 = User(username='user1', email='user1@example.com', password='password1')
-    user2 = User(username='user2', email='user2@example.com', password='password2')
-    user3 = User(username='user3', email='user3@example.com', password='password3')
-    users = [user1, user2, user3]
-
-    # Create organizations
-    print("Creating organizations...")
-    org1 = Organization(name='Org1', description='Description for Org1')
-    org2 = Organization(name='Org2', description='Description for Org2')
-    org3 = Organization(name='Org3', description='Description for Org3')
-    organizations = [org1, org2, org3]
-
+    users = []
+    for i in range(10): # create 10 fake users
+        user = User(username=fake.user_name(), email=fake.email(), password='password')
+        users.append(user)
     db.session.add_all(users)
     db.session.commit()
 
+    # Create organizations
+    print("Creating organizations...")
+    organizations = []
+    for i in range(5): # create 5 fake organizations
+        org = Organization(name=fake.company(), logo=fake.image_url(), tagline=fake.catch_phrase(), goals=fake.text(max_nb_chars=200), achievements=fake.text(max_nb_chars=200), financial_needs=fake.text(max_nb_chars=200), description=fake.text(max_nb_chars=200))
+        organizations.append(org)
     db.session.add_all(organizations)
     db.session.commit()
 
+    # Create donations
     print("Creating donations...")
-    donation1 = Donation(user_id=user1.id, organization_id=org1.id, amount=50.00, frequency='monthly', payment_info='credit card')
-    donation2 = Donation(user_id=user2.id, organization_id=org2.id, amount=25.00, frequency='one-time', payment_info='paypal')
-    donation3 = Donation(user_id=user3.id, organization_id=org3.id, amount=100.00, frequency='monthly', payment_info='bank transfer')
-    donations = [donation1, donation2, donation3]
+    donations = []
+    for i in range(20): # create 20 fake donations
+        donation = Donation(user_id=fake.random_element(users).id, organization_id=fake.random_element(organizations).id, amount=fake.random_number(digits=3), frequency=fake.random_element(elements=('monthly', 'one-time', 'weekly')), payment_info=fake.credit_card_number())
+        donations.append(donation)
+    db.session.add_all(donations)
+    db.session.commit()
 
     # Create success stories
     print("Creating success stories...")
-    story1 = SuccessStory(organization_id=org1.id, title='Story1', description='Description for Story1')
-    story2 = SuccessStory(organization_id=org2.id, title='Story2', description='Description for Story2')
-    story3 = SuccessStory(organization_id=org3.id, title='Story3', description='Description for Story3')
-    stories = [story1, story2, story3]
-
-    db.session.add_all(donations)
+    stories = []
+    for i in range(5): # create 5 fake success stories
+        story = SuccessStory(organization_id=fake.random_element(organizations).id, title=fake.sentence(), description=fake.paragraph())
+        stories.append(story)
     db.session.add_all(stories)
     db.session.commit()
 

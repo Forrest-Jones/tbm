@@ -1,33 +1,33 @@
 from app import app, db
 from models import User, Organization, Donation, SuccessStory
 
-# Start the application context
 with app.app_context():
-    # This will delete any existing rows
-    # so you can run the seed file multiple times without having duplicate entries in your database
+    # Delete existing data
     print("Deleting data...")
-    User.query.delete()
-    Organization.query.delete()
     Donation.query.delete()
     SuccessStory.query.delete()
+    Organization.query.delete()
+    User.query.delete()
 
+    # Create users
     print("Creating users...")
-    user1 = User(name='John Doe', email='john.doe@example.com', password='password')
-    user2 = User(name='Jane Smith', email='jane.smith@example.com', password='password')
-    user3 = User(name='Bob Johnson', email='bob.johnson@example.com', password='password')
+    user1 = User(username='user1', email='user1@example.com', password='password1')
+    user2 = User(username='user2', email='user2@example.com', password='password2')
+    user3 = User(username='user3', email='user3@example.com', password='password3')
     users = [user1, user2, user3]
 
+    # Create organizations
     print("Creating organizations...")
-    org1 = Organization(name='Charity A', logo='logo.png', tagline='Helping those in need',
-                        goals='Goal 1, Goal 2, Goal 3', achievements='Achievement 1, Achievement 2, Achievement 3',
-                        financial_needs='Need 1, Need 2, Need 3')
-    org2 = Organization(name='Charity B', logo='logo.png', tagline='Making a difference',
-                        goals='Goal 1, Goal 2, Goal 3', achievements='Achievement 1, Achievement 2, Achievement 3',
-                        financial_needs='Need 1, Need 2, Need 3')
-    org3 = Organization(name='Charity C', logo='logo.png', tagline='Changing lives',
-                        goals='Goal 1, Goal 2, Goal 3', achievements='Achievement 1, Achievement 2, Achievement 3',
-                        financial_needs='Need 1, Need 2, Need 3')
+    org1 = Organization(name='Org1', description='Description for Org1')
+    org2 = Organization(name='Org2', description='Description for Org2')
+    org3 = Organization(name='Org3', description='Description for Org3')
     organizations = [org1, org2, org3]
+
+    db.session.add_all(users)
+    db.session.commit()
+
+    db.session.add_all(organizations)
+    db.session.commit()
 
     print("Creating donations...")
     donation1 = Donation(user_id=user1.id, organization_id=org1.id, amount=50.00, frequency='monthly', payment_info='credit card')
@@ -35,18 +35,15 @@ with app.app_context():
     donation3 = Donation(user_id=user3.id, organization_id=org3.id, amount=100.00, frequency='monthly', payment_info='bank transfer')
     donations = [donation1, donation2, donation3]
 
-    # set the user and organization IDs for the donations
-    donation1.user_id = user1.id
-    donation2.user_id = user2.id
-    donation3.user_id = user3.id
-    donation1.organization_id = org1.id
-    donation2.organization_id = org2.id
-    donation3.organization_id = org3.id
+    # Create success stories
+    print("Creating success stories...")
+    story1 = SuccessStory(organization_id=org1.id, title='Story1', description='Description for Story1')
+    story2 = SuccessStory(organization_id=org2.id, title='Story2', description='Description for Story2')
+    story3 = SuccessStory(organization_id=org3.id, title='Story3', description='Description for Story3')
+    stories = [story1, story2, story3]
 
-    db.session.add_all(users)
-    db.session.add_all(organizations)
     db.session.add_all(donations)
-    # db.session.add_all(stories)  # It seems you didn't create 'stories' variable, so I commented this line
+    db.session.add_all(stories)
     db.session.commit()
 
     print("Seeding done!")

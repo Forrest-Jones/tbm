@@ -7,7 +7,7 @@ from models import db, User, Donation, Organization, SuccessStory
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.json.compact = False
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 migrate = Migrate(app, db)
 
@@ -23,7 +23,7 @@ def get_users():
     for user in users:
         user_data = {
             'id': user.id,
-            'name': user.name,
+            'username': user.username,
             'email': user.email
         }
         results.append(user_data)
@@ -57,3 +57,6 @@ def user_by_id(id):
         )
 
     return response
+
+if __name__ == '__main__':
+    app.run(debug=True)

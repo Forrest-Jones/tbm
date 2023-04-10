@@ -1,0 +1,57 @@
+/* Dark mode */
+body.dark {
+    background-color: #121212;
+  }
+  
+  .user-dashboard.dark {
+    background-color: rgba(34, 34, 34, 0.1);
+  }
+  
+  .user-dashboard h1.dark,
+  .user-dashboard h2.dark,
+  .user-dashboard p.dark {
+    color: #eeeeee;
+  }
+  
+  /* Center everything */
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .user-dashboard {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+  }
+  
+  .user-dashboard h1 {
+    font-size: 2rem;
+    color: #333333;
+    margin-bottom: 1rem;
+  }
+  
+  .user-dashboard h2 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin: 1.5rem 0;
+  }
+  
+  .user-dashboard p {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .user-dashboard p strong {
+    font-weight: bold;
+  }
+  

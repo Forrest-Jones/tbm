@@ -56,7 +56,7 @@ function Landing({ user, setUser, organizations }) {
           </button>
         </div>
         <div className="image">
-          <img src="images/Jesus-image.jpg" alt="Jesus Image" />
+          <img src="images/Jesus-image.jpg" alt="Jesus" />
         </div>
       </div>
     </div>

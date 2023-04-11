@@ -1,0 +1,8 @@
+li {
+    color: transparent;
+  }
+  
+  li:before {
+    color: transparent;
+  }
+  

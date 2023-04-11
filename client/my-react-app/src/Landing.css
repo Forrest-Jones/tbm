@@ -3,8 +3,9 @@ body.dark {
   background-color: #121212;
 }
 
+
 .user-dashboard.dark {
-  background-color: rgba(34, 34, 34, 0.1);
+  background-color: rgba(14, 66, 237, 0.939);
 }
 
 .user-dashboard h1.dark,
@@ -143,4 +144,7 @@ button.dark {
 
 .dark-mode-button.dark {
   background-color: #666666;
+}
+.user-dashboard * {
+  margin: 0 auto;
 }

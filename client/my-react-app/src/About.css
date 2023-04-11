@@ -1,12 +1,22 @@
+body {
+  background-color: #0559e0;
+  color: rgb(51, 51, 51);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 2;
+  padding: 10;
+}
+
 .about-page {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 1 auto;
     padding: 20px;
     font-size: 1.1em;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(7, 165, 234, 0.1);
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Increased contrast */
+    border: 1.5px solid rgba(255, 255, 255, 0.5); /* Increased contrast */
     position: relative;
     transform: perspective(800px) rotateX(0deg) rotateY(0deg);
     transition: all 0.25s ease;
@@ -40,8 +50,7 @@
     transform: perspective(800px) rotateX(0deg) rotateY(1deg);
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
   
-    /* Glass reflection effect with texture */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Crect width='40' height='40'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 90%);
+        
   }
   .donate-button {
     margin-top: 50px;
@@ -51,8 +60,8 @@
   .donate-button a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3664c2;
-    color: #fff;
+    background-color: #0bf098;
+    color: rgb(32, 80, 237);
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.1em;
@@ -64,11 +73,11 @@
   }
   .donate-button a {
     /* existing styles */
-    box-shadow: 0px 0px 10px 5px white;
+    box-shadow: 0px 0px 10px 5px rgb(5, 79, 239);
   }
   .donate-now-page button {
     background-color: #4CAF50;
-    color: white;
+    color: rgb(6, 53, 238);
     border: none;
     border-radius: 0.5rem;
     padding: 1rem;
@@ -81,7 +90,7 @@
   }
   
   .donate-now-page button:hover {
-    box-shadow: 0 0 10px white; /* Increased white shadow on hover */
+    box-shadow: 0 0 10px rgb(5, 43, 236); /* Increased white shadow on hover */
   }
   
   

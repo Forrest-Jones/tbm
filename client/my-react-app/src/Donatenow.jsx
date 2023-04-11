@@ -5,6 +5,12 @@ import "./Donatenow.css";
 function Donatenow() {
   return (
     <div className="donate-now-page">
+      <div className="circle-container">
+        <div className="circle circle-1"></div>
+        <div className="circle circle-2"></div>
+        <div className="circle circle-3"></div>
+        <div className="circle circle-4"></div>
+      </div>
       <h1>Donate Now Through GYVE App</h1>
       <p>
         Thank you for choosing to support Christian organizations using The Blessing Machine! To make your donation, please follow these simple steps:

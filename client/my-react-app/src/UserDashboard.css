@@ -55,3 +55,34 @@ body.dark {
     font-weight: bold;
   }
   
+  /* Center everything */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .user-dashboard {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+  }
+  
+  .user-dashboard header {
+    margin-bottom: 1rem;
+  }
+  
+  .user-dashboard nav button {
+    margin-right: 1rem;
+  }
+  
+  .user-dashboard nav button:last-child {
+    margin-right: 0;
+  }
+  

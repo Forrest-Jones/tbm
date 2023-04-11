@@ -8,7 +8,7 @@ function LearnMore() {
   const organizations = [
     {
       id: 1,
-      name: "Grimes Group",
+      name: "New Beginnings Ministries",
       logo: "https://dummyimage.com/696x135",
       tagline: "Ameliorated secondary Graphic Interface",
       goals:

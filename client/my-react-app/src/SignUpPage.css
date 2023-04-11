@@ -1,0 +1,67 @@
+.container {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-pane {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: -100px; /* changed value */
+}
+
+.glass-pane:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(100, 255, 218, 0.2);
+  border-radius: 50%;
+  left: -50px;
+  bottom: 35px;
+  z-index: -1;
+}
+
+.glass-pane:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(10, 233, 69, 0.2);
+  border-radius: 50%;
+  right: -50px;
+  bottom: -45px;
+  z-index: -1;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.glass-pane:hover {
+  transform: translate(-50%, -55%) rotate(-1deg);
+  background-color: rgba(255, 255, 255, 0.2);
+}

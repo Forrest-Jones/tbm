@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function UserDashboard({ user }) {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h1>Welcome, {user.name}!</h1>
       <h2>User Profile</h2>
       <p>Name: {user.name}</p>
@@ -24,6 +25,15 @@ function UserDashboard({ user }) {
       <p>The Blessing Machine implements an endowment management system with investment insights and recommendations for the Organizations that are on the platform. You can learn more about this on the Organization Profile pages.</p>
       <p><strong>How can I get started with The Blessing Machine?</strong></p>
       <p>To get started with The Blessing Machine, you can visit the platform's website, create a user account, and start exploring the available Christian organizations to donate to.</p>
+      
+      <div style={{ marginTop: "20px" }}>
+        <Link to="/donatenow">
+          <button>Donate Now Through the GYVE App</button>
+        </Link>
+        <Link to="/organizations">
+          <button>Explore Organizations</button>
+        </Link>
+      </div>
     </div>
   );
 }

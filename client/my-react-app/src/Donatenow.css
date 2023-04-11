@@ -1,0 +1,137 @@
+.donate-now-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.5); /* Increased contrast */
+    position: relative;
+  }
+  
+  .donate-now-page:before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 165, 0, 0.3); /* Brighter orange color */
+    border-radius: 50%;
+    left: -50px;
+    top: -50px;
+    z-index: -1;
+  }
+  
+  .donate-now-page:after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 165, 0, 0.3); /* Brighter orange color */
+    border-radius: 50%;
+    right: -25px;
+    bottom: -25px;
+    z-index: -1;
+  }
+  
+  /* ...remaining styles... */
+  
+  
+  .donate-now-page a {
+    color: #08f13f;
+    text-decoration: none;
+  }
+  
+  .donate-now-page a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive styles for tablet devices */
+  @media (max-width: 768px) {
+    .donate-now-page {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .donate-now-page:before,
+    .donate-now-page:after {
+      display: none;
+    }
+  }
+  
+  /* Responsive styles for mobile devices */
+  @media (max-width: 480px) {
+    .donate-now-page {
+      max-width: 100%;
+      padding: 10px;
+      font-size: 1em;
+    }
+  }
+  .donate-now-page {
+    /* ...existing styles... */
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    transition: all 0.25s ease;
+  }
+  
+  .donate-now-page:hover {
+    transform: perspective(800px) rotateX(0deg) rotateY(1deg);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  
+    /* Glass reflection effect with texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Crect width='40' height='40'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 90%);
+  }
+  .donate-now-page:before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 165, 0, 0.3); /* Brighter orange color */
+    border-radius: 50%;
+    left: -50px;
+    top: -50px;
+    z-index: -1;
+    border: 0.25px solid rgba(255, 255, 255, 0.5); /* Added border */
+  }
+  
+  .donate-now-page:after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 165, 0, 0.3); /* Brighter orange color */
+    border-radius: 50%;
+    right: -25px;
+    bottom: -25px;
+    z-index: -1;
+    border: 0.05px solid rgba(255, 255, 255, 0.5); /* Added border */
+  }
+  .donate-now-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  button {
+    /* existing button styles... */
+    box-shadow: 0 0 10px white;
+  }
+  .donate-now-page:hover {
+    transform: perspective(800px) rotateX(0deg) rotateY(1deg);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.5); /* Update box-shadow */
+    background-color: rgba(255, 255, 255, 0.2); /* Update background color */
+    
+    /* Glass reflection effect with texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Crect width='40' height='40'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 90%);
+  }
+  .donate-now-page:before {
+    /* existing styles */
+    filter: blur(15px); /* Increase blur effect */
+  }
+  
+  .donate-now-page:after {
+    /* existing styles */
+    filter: blur(10px); /* Increase blur effect */
+  }
+  
+  

@@ -1,16 +1,7 @@
-.donate-now-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 35px;
-  font-size: 1.1em;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
-  position: relative;
-  transform: perspective(800px) rotateX(0deg) rotateY(0deg);
-  transition: all 0.25s ease;
+.hide-buttons .nav-button {
+  display: none;
 }
+
 
 .donate-now-page:hover {
   transform: perspective(800px) rotateX(0deg) rotateY(1deg);
@@ -105,7 +96,7 @@
   text-decoration: underline;
   }
   .back-to-home-btn {
-    position: absolute;
+    position: center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -113,12 +104,12 @@
   .donate-now-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 35px;
+  padding: 100px;
   font-size: 1.1em;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: rgba(81, 164, 237, 0.1);
+  border-radius: 100px;
   backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.75px solid rgba(5, 102, 200, 0.5);
   position: relative;
   transform: perspective(800px) rotateX(0deg) rotateY(0deg);
   transition: all 0.25s ease;

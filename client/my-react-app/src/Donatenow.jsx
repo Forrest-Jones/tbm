@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom"; // import the Link component from react-router-dom
-import "./Donatenow.css";
+import { Link } from "react-router-dom"; 
+import styles from './Donatenow.module.css';
 
 function Donatenow() {
   return (
-    <div className="donate-now-page">
-      <div className="circle-container">
-        <div className="circle circle-1"></div>
-        <div className="circle circle-2"></div>
-        <div className="circle circle-3"></div>
-        <div className="circle circle-4"></div>
+    <div className={styles["donate-now-page"]}>
+      <div className={styles["circle-container"]}>
+        <div className={`${styles.circle} ${styles["circle-1"]}`}></div>
+        <div className={`${styles.circle} ${styles["circle-2"]}`}></div>
+        <div className={`${styles.circle} ${styles["circle-3"]}`}></div>
+        <div className={`${styles.circle} ${styles["circle-4"]}`}></div>
       </div>
       <h1>Donate Now Through GYVE App</h1>
       <p>
@@ -25,9 +25,11 @@ function Donatenow() {
       <p>
         Your donation will make a significant impact on the Christian organization you choose to support. Thank you for your generosity!
       </p>
-      <Link to="/">
-        <button>Back to Home</button>
-      </Link>
+      <div className="button-container">
+        <Link to="/">
+          <button className="back-to-home-btn">Back to Home</button>
+        </Link>
+      </div>
     </div>
   );
 }

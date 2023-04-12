@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./Landing.css";
+
 
 function Landing({ user, setUser, organizations }) {
   const history = useHistory();

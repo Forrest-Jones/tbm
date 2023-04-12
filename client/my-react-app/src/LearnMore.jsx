@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import "/Users/furiousinc/Desktop/tbm/client/my-react-app/src/LearnMore.css";
+import styles from './LearnMore.css';
+
 
 function LearnMore() {
   
@@ -108,9 +110,9 @@ function LearnMore() {
             <p>{selectedOrganization.description}</p>
           </div>
         )}
+        <div className={styles['my-class']}>...</div>
       </div>
     );
-    }
-    
-    export default LearnMore;
-    
+  }
+  
+  export default LearnMore;

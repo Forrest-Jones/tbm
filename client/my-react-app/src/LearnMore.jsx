@@ -1,52 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import styles from './LearnMore.module.css';
+import { useParams } from "react-router-dom";
+import styles from "./LearnMore.module.css";
 
 function LearnMore() {
-  const [organizations, setOrganizations] = useState([]);
-  const [selectedOrganization, setSelectedOrganization] = useState(null);
+  const [organization, setOrganization] = useState(null);
+  const { id } = useParams(); // Get the organization id from the URL
 
   useEffect(() => {
-    async function fetchOrganizations() {
+    async function fetchOrganization() {
       try {
-        const response = await fetch('/api/organizations');
-        const data = await response.json();
-        setOrganizations(data);
+        const response = await fetch(`http://localhost:5000/organizations/${id}`); // Fetch the organization by id
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched organization data:", data); // Log the fetched data
+          setOrganization(data);
+        } else {
+          console.error(`Error fetching organization data: ${response.status} ${response.statusText}`);
+        }
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching organization data:", error);
       }
     }
 
-    fetchOrganizations();
-  }, []);
-
-  const handleOrganizationClick = (id) => {
-    const organization = organizations.find((org) => org.id === id);
-    setSelectedOrganization(organization);
-  };
+    fetchOrganization();
+  }, [id]);
 
   return (
     <div>
       <h1>Learn More</h1>
-      <div className={styles['organization-list']}>
-        {organizations.map((org) => (
-          <div key={org.id} className={styles.organization} onClick={() => handleOrganizationClick(org.id)}>
-            <Link to={`/organizations/${org.id}`}>
-              <img src={org.logo} alt={`${org.name} logo`} />
-              <h3>{org.name}</h3>
-              <p>{org.tagline}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
-      {selectedOrganization && (
-        <div className={styles['selected-organization']}>
-          <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
-          <h2>{selectedOrganization.name}</h2>
-          <p>{selectedOrganization.description}</p>
+      {organization ? (
+        <div className={styles["selected-organization"]}>
+          <img src={organization.logo} alt={`${organization.name} logo`} />
+          <h2>{organization.name}</h2>
+          <p>{organization.description}</p>
+          {/* Add more fields to display additional information about the organization */}
         </div>
+      ) : (
+        <p>Loading...</p>
       )}
-      <div className={styles['my-class']}>...</div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css";
+import './globalStyles.css';
 import { Link } from "react-router-dom"; // import the Link component from react-router-dom
 
 function About() {
@@ -49,7 +49,7 @@ function About() {
       </p>
 
       <div className="donate-button">
-        <Link to="/donatenow">Donate Now Through the GYVE APP</Link>
+        <Link to="/donatenow">Donate Now! via the BlessingMachine App</Link>
         </div>
       </div>
 

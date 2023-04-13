@@ -22,8 +22,9 @@ function App() {
             <Route exact path="/" component={Landing} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/dashboard" render={(props) => <UserDashboard user={props.location.state} />} />
-            <Route path="/learnmore" component={LearnMore} />
-            <Route path="/donatenow" component={Donatenow} />
+            <Route path="/organizations/:id/learnmore" component={LearnMore} />
+            <Route path="/organizations/:id/donatenow" component={Donatenow} />
+            <Route path="/donatenow" component={Donatenow} /> {/* Add this new route */}
             <Route path="/about" component={About} />
             <Route path="/organizations" component={Organizations} />
           </Switch>

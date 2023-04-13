@@ -31,7 +31,8 @@ function UserDashboard({ user }) {
           <button>Donate Now Through the GYVE App</button>
         </Link>
         <Link to="/organizations">
-          <button>Explore Organizations</button>
+          <button>Sign Up Your Organization Here 
+            Today!</button>
         </Link>
       </div>
     </div>

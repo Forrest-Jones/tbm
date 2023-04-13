@@ -11,7 +11,7 @@ function Donatenow() {
         <div className={`${styles.circle} ${styles["circle-3"]}`}></div>
         <div className={`${styles.circle} ${styles["circle-4"]}`}></div>
       </div>
-      <h1>Donate Now Through GYVE App</h1>
+      <h1>Donate Now! via the BlessingMachine App!</h1>
       <p>
         Thank you for choosing to support Christian organizations using The Blessing Machine! To make your donation, please follow these simple steps:
       </p>

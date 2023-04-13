@@ -14,6 +14,19 @@ class User(db.Model, SerializerMixin):
 
     serialize_only = ('id', 'username', 'email')
 
+    @validates('username')
+    def validate_username(self, key, username):
+        if len(username) < 3:
+            raise ValueError("Username must be at least 3 characters long.")
+        return username
+
+    @validates('email')
+    def validate_email(self, key, email):
+        email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        if not re.match(email_pattern, email):
+            raise ValueError("Invalid email address.")
+        return email
+
 user_org_association = db.Table('user_org_association',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
     db.Column('org_id', db.Integer, db.ForeignKey('organization.id'), primary_key=True)

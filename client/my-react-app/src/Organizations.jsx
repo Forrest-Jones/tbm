@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import "./Organizations.css";
 import stockImage from './stockImages/Jesus-image.jpg';
-
-
-
+import UpdateOrganizationForm from './UpdateOrganizationForm';
 
 const BASE_URL = "http://127.0.0.1:5000";
 
 function Organizations() {
   const [organizations, setOrganizations] = useState([]);
   const [selectedOrganization, setSelectedOrganization] = useState(null);
-
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
+  
   useEffect(() => {
     const fetchOrganizations = async () => {
       const response = await fetch(`${BASE_URL}/organizations`);
@@ -31,15 +29,7 @@ function Organizations() {
     await fetch(`${BASE_URL}/organizations/${id}`, {
       method: "DELETE",
     });
-  
-    // wait for 20 seconds before resetting the state
-    setTimeout(() => {
-      setOrganizations(
-        organizations.filter((organization) => organization.id !== id)
-      );
-      setSelectedOrganization(null); // reset selected organization if it was deleted
-    }, 20000);
-  };
+    };
   
 
   const handleUpdateOrganization = async (id, updatedData) => {
@@ -86,14 +76,17 @@ return (
     <h1>Organizations</h1>
     <div className="organizations-list">
       {organizations.map((organization) => (
-        <div key={organization.id} className="organization">
-          <img
-            src={organization.logo ? organization.logo : stockImage}
-            alt={`${organization.name} logo`}
-            onClick={() => handleOrganizationClick(organization.id)}
-          />
-          <h3>{organization.name}</h3>
-          <p>{organization.tagline}</p>
+        <div key={organization.id} className="organization-card">
+          <div className="organization-card-content">
+            <img
+              className="organization-logo"
+              src={organization.logo ? organization.logo : stockImage}
+              alt={`${organization.name} logo`}
+              onClick={() => handleOrganizationClick(organization.id)}
+            />
+            <h3 className="organization-name">{organization.name}</h3>
+            <p className="organization-tagline">{organization.tagline}</p>
+          </div>
           <div className="buttons-row">
             <button className="learn-more">
               <Link to={`/organizations/${organization.id}/learnmore`}>Learn More</Link>
@@ -111,16 +104,28 @@ return (
     </div>
     {selectedOrganization && (
       <div className="selected-organization">
-        <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
-        <h2>{selectedOrganization.name}</h2>
-        <p>{selectedOrganization.description}</p>
-        <button className="update-organization" onClick={() => handleUpdateOrganization(selectedOrganization.id, {name: 'The Blessing Machine'})}>Update</button>
-        <button className="go-back" onClick={() => setSelectedOrganization(null)}>Go Back</button>
+        {showUpdateForm ? (
+          <UpdateOrganizationForm
+            organization={selectedOrganization}
+            onUpdate={handleUpdateOrganization}
+            onCancel={() => setShowUpdateForm(false)}
+          />
+        ) : (
+          <>
+            <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
+            <h2>{selectedOrganization.name}</h2>
+            <p>{selectedOrganization.description}</p>
+            <div className="button-container">
+              <button className="update-organization" onClick={() => setShowUpdateForm(true)}>Update Organization Info Here!</button>
+            </div>
+          </>
+        )}
       </div>
     )}
-
   </div>
 );
+
+
 
 
 function OrganizationForm({ onSubmit }) {
@@ -146,7 +151,7 @@ function OrganizationForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Create New Organization</h3>
+      <h3>Add your organization to our platform by filling out the form below or browse the current organizations that have already signed up to be with us.</h3>
       <label htmlFor="name">Name:</label>
       <input
         type="text"

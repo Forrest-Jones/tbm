@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
+import re 
 
 db = SQLAlchemy()
 
@@ -34,6 +35,9 @@ user_org_association = db.Table('user_org_association',
 
 class Organization(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
+    # In the Organization model
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+
     name = db.Column(db.String(50), nullable=False)
     logo = db.Column(db.String(120), nullable=True)
     tagline = db.Column(db.String(80), nullable=True)

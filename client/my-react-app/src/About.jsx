@@ -1,5 +1,4 @@
 import React from "react";
-import './globalStyles.css';
 import { Link } from "react-router-dom"; // import the Link component from react-router-dom
 
 function About() {

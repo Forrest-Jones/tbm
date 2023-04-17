@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import DarkModeContext from "./DarkModeContext";
-import './globalStyles.css';
+
 
 function Landing({ user, setUser, organizations }) {
   const history = useHistory();
@@ -18,10 +18,7 @@ function Landing({ user, setUser, organizations }) {
             Transforming Fundraising for Christian Organizations.
           </p>
         </div>
-        <div className="image">
-          <div className="glass-pane">
-            <img src="images/Jesus-image.jpg" alt="Jesus" />
-          </div>
+        <div>
         </div>
       </div>
     </div>

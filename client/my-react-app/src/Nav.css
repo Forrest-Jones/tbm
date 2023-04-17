@@ -1,68 +1,60 @@
+/* Nav.css */
 nav {
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
-  }
-  
-  ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: rgba(2, 12, 34, 0.8);
+  border-bottom: 1px solid rgba(2, 39, 92, 0.1);
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
   list-style-type: none;
+  margin: 50;
+  padding: 50;
+}
+
+nav li {
   margin: 0;
-  padding: 0;
-  }
-  
-  li {
-  display: inline-block;
-  margin: 0 50px;
-  }
-  
-  a {
+}
+
+nav a {
   text-decoration: none;
-  color: inherit;
-  }
-  
-  .dark-mode-button {
-  background-color: transparent;
+  color: #ab47bc;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #7b1fa2;
+}
+
+nav .dark-mode-button {
+  background-color: #ab47bc;
   border: none;
-  color: inherit;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  }
-  
-  .dark {
-  background-color: rgb(3, 36, 61);
-  color: rgb(6, 105, 162);
-  }
-  
-  .hide-buttons .nav-button {
-  display: none;
-  }
-  
-  .nav-button {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  padding: 10px;
-  }
-  
-  .nav-button:hover {
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .header-box {
-  border: 1px solid rgb(11, 217, 244);
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  .header-box {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-out;
-  }
-  
-  .header-box:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-  
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav .dark-mode-button.dark {
+  background-color: #7b1fa2;
+}
+
+nav .dark-mode-button:hover {
+  background-color: #9c27b0;
+}
+
+nav .dark-mode-button.dark:hover {
+  background-color: #6a1b9a;
+}

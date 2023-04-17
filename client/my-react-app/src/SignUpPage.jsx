@@ -1,69 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "./SignUpPage.css";
-import donateNowStyles from "./Donatenow.module.css";
+
+const BASE_URL = "http://127.0.0.1:5000";
 
 function SignUpPage() {
   const history = useHistory();
-  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    history.push("/dashboard", { name: event.target.name.value, email: event.target.email.value });
+  
+    const organizationData = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      logo: event.target.logo.value,
+      tagline: event.target.tagline.value,
+      goals: event.target.goals.value,
+      achievements: event.target.achievements.value,
+      financial_needs: event.target.financial_needs.value,
+      description: event.target.description.value,
+      password: event.target.password.value,
+    };
+  
+    try {
+      const response = await fetch(`${BASE_URL}/organizations`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(organizationData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to add organization');
+      }
+  
+      history.push('/dashboard');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to add organization');
+    }
   };
 
   const handleHomePageClick = () => {
     history.push("/");
   };
 
-  const handleHamburgerClick = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className="glass-pane">
-      <header>
-        <nav>
-          <button onClick={handleHomePageClick}>Home</button>
-          <div className="hamburger" onClick={handleHamburgerClick}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </nav>
-        {isOpen && (
-          <div className="glass-pane">
-            <button onClick={handleHomePageClick}>Home</button>
-          </div>
-        )}
-      </header>
-      <div className="container">
-        <h1>Sign Up Page</h1>
-        <div className="form-wrapper">
-          <p>Please fill out the form below to sign up for our platform:</p>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password:</label>
-              <input type="password" id="password" name="password" required />
-            </div>
-            <div className="form-group">
-              <button type="submit" className={donateNowStyles.submitBtn}>Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div className="blur-circle top-left"></div>
-      <div className="blur-circle top-right"></div>
-      <div className="blur-circle bottom-left"></div>
-      <div className="blur-circle bottom-right"></div>
+      {/* ... */}
     </div>
   );
 }

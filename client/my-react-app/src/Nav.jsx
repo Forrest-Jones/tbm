@@ -26,7 +26,7 @@ function Nav({ hideButtons }) {
               <Link to="/organizations" onClick={() => history.push("/organizations")}>Organizations</Link>
             </li>
             <li>
-              <Link to="/endowmentmanagement" onClick={() => history.push("/endowmentmanagement")}>Endowment Management</Link>
+              <Link to="/endowmentmanagement" onClick={() => history.push("/endowmentmanagement")}>$Endowment Management$</Link>
             </li>
             <li>
             <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>

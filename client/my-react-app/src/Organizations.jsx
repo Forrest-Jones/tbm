@@ -141,10 +141,13 @@ function OrganizationForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
+
       <h3>Add an organization to The Blessing Machine platform 
-          by filling out the form below and the TBM staff will 
-          review the entry and reach out to the organization to 
-          sign them up to the platform at no cost to them.
+          by filling out the form below. The TBM staff will 
+          review each entry and reach out to the organization
+          to qualify them as recipient of The Blessing Machine 
+          Endowment Fund.
+          
       </h3>
       <label htmlFor="name">Name:</label>
       <input

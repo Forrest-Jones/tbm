@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom"; // import the Link component from react-router-dom
 
 function About() {
   return (
@@ -29,8 +28,8 @@ function About() {
         <li>Offer a seamless donation process for donors, with options for one-time or recurring donations.</li>
         <li>Provide comprehensive organization profiles that showcase goals, achievements, and financial needs.</li>
         <li>Enable secure user account management, including personal information, donation history, and tax-deductible receipts.</li>
-        <li>Utilize AI-generated content for organization profiles, success stories, and personalized donor communications.</li>
-        <li>Implement an endowment management system with investment insights and recommendations.</li>
+        <li>Utilize AI-generated content for maintaining modern organization profiles, organize their success stories and ratings feedback loops, and personalize and automate their donor communications.</li>
+        <li>Implement an endowment management system with investment choices to the organizational owners, board members, and advisory teams while walking them through conception to implementation.</li>
       </ul>
 
       <h2>Deliverables and Success Criteria</h2>
@@ -44,12 +43,8 @@ function About() {
 
       <h2>Conclusion</h2>
       <p>
-        The Blessing Machine is set to revolutionize the fundraising landscape for Christian organizations by leveraging cutting-edge technologies and providing a tailored solution. This platform will simplify the donation process, improve endowment management, and maximize donor contributions. The Blessing Machine will empower Christian organizations to achieve their missions, secure their financial future, and create lasting, positive change in their communities for Christ.
+        The Blessing Machine is set to revolutionize the fundraising landscape for Christian organizations by leveraging cutting-edge technologies and providing a tailored solution. This platform will simplify the donation process, improve endowment management, and maximize donor contributions. The Blessing Machine will empower Christian organizations to achieve their missions, secure their financial future, and create lasting, positive change in their communities for Jesus Christ.
       </p>
-
-      <div className="donate-button">
-        <Link to="/donatenow">Donate Now! via the BlessingMachine App</Link>
-        </div>
       </div>
 
 

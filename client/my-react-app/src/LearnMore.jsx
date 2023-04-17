@@ -22,7 +22,9 @@ function LearnMore() {
       }
     }
 
-    fetchOrganization();
+    if (id) {
+      fetchOrganization();
+    }
   }, [id]);
 
   return (

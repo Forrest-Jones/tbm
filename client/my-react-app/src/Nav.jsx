@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import DarkModeContext from "./DarkModeContext";
 import "./Nav.css";
 
-
 function Nav({ hideButtons }) {
   const history = useHistory();
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
@@ -27,10 +26,10 @@ function Nav({ hideButtons }) {
               <Link to="/organizations" onClick={() => history.push("/organizations")}>Organizations</Link>
             </li>
             <li>
-              <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
+              <Link to="/endowmentmanagement" onClick={() => history.push("/endowmentmanagement")}>Endowment Management</Link>
             </li>
             <li>
-              <Link to="/signup" onClick={() => history.push("/signup")}>Sign Up</Link>
+            <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
             </li>
           </>
         )}

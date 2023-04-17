@@ -25,11 +25,6 @@ function Donatenow() {
       <p>
         Your donation will make a significant impact on the Christian organization you choose to support. Thank you for your generosity!
       </p>
-      <div className="button-container">
-        <Link to="/">
-          <button className="back-to-home-btn">Back to Home</button>
-        </Link>
-      </div>
     </div>
   );
 }

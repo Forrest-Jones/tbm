@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
 import stockImage from './stockImages/Jesus-image.jpg';
 import UpdateOrganizationForm from './UpdateOrganizationForm';
 
@@ -88,15 +87,6 @@ return (
             <p className="organization-tagline">{organization.tagline}</p>
           </div>
           <div className="buttons-row">
-            <button className="learn-more">
-              <Link to={`/organizations/${organization.id}/learnmore`}>Learn More</Link>
-            </button>
-            <button className="donate-now">
-              <Link to={`/organizations/${organization.id}/donatenow`}>Donate Now! via the Blessing Machine APP!</Link>
-            </button>
-            <button className="go-back-home" onClick={() => console.log("Go Back Home button clicked")}>
-              Back to Home
-            </button>
           </div>
           <button className="delete-organization" onClick={() => handleDeleteOrganization(organization.id)}>Delete</button>
         </div>
@@ -151,7 +141,11 @@ function OrganizationForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Add your organization to our platform by filling out the form below or browse the current organizations that have already signed up to be with us.</h3>
+      <h3>Add an organization to The Blessing Machine platform 
+          by filling out the form below and the TBM staff will 
+          review the entry and reach out to the organization to 
+          sign them up to the platform at no cost to them.
+      </h3>
       <label htmlFor="name">Name:</label>
       <input
         type="text"

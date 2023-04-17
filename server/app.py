@@ -5,7 +5,9 @@ from flask_cors import CORS
 from models import db, User, Donation, Organization, SuccessStory
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"], "allow_headers": ["Content-Type"]}})
+
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False

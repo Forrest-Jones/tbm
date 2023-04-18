@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import stockImage from './stockImages/Jesus-image.jpg';
 import UpdateOrganizationForm from './UpdateOrganizationForm';
+import "./Organizations.css";
+
 
 const BASE_URL = "http://127.0.0.1:5000";
 

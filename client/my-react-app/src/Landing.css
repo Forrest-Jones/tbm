@@ -1,128 +1,117 @@
 /* Landing.css */
-
 .page {
-    max-width: 1200px;
-    max-height: 500px;
-    margin: 0 auto;
+  max-width: 1200px;
+  max-height: 500px;
+  margin: 0 auto;
 }
+
 .example {
-    margin-top: 20px;
-    margin-right: 40px;
-    margin-bottom: 20px;
-    margin-left: 40px;
+  margin-top: 20px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  transition: all 10.50s ease;
+}
+
+.glass-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(132, 193, 240, 0.1);
+  border-radius: 100px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(237, 9, 225, 0.2);
+  transform: rotate(0deg);
+  opacity: 50;
+  transition: opacity 0.3s ease;
+
+}
+.homepage:hover .glass-pane {
+  opacity: 1;
+}
+
+.glass-pane::before {
+  content: "";
+  display: circle;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 200px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-50%);
   }
-  
-  
-  .homepage {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1em;
-    transition: all 0.50s ease;
+  500% {
+    transform: translateX(100%);
   }
-  
-  .glass-pane {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 800px;
-    margin: auto;
-    background: rgba(230, 234, 237, 0.1);
-    border-radius: 100px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(237, 9, 225, 0.2);
-  }
-  
-  
-  
-  
-  .glass-pane::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    border-radius: 200px;
-    animation: shimmer 3s infinite;
-  }
-  
-  .glass-pane-dark::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    border-radius: 100px;
-    animation: shimmer 3s infinite;
-  }
-  
-  .glass-pane,
-  .glass-pane-dark {
-    position: relative;
-  }
-  
-  .circle-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: invisible;
-    z-index: -2;
-  }
-  
-  .circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(50px);
-  }
-  
-  .circle-1 {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(236, 101, 11, 0.3);
-    left: 30%;
-    top: 80%;
-  }
-  
-  .circle-2 {
-    width: 200px;
-    height: 200px;
-    background-color: rgba(216, 191, 216, 0.3);
-    left: 60%;
-    top: 10%;
-  }
-  
-  .circle-3 {
-    width: 150px;
-    height: 150px;
-    background-color: rgba(255, 192, 203, 0.3);
-    left: 80%;
-    top: 50%;
-  }
+}
+
+/* ... rest of the code remains the same ... */
+
+.circle-1 {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(213, 169, 232, 0.3);
+  left: 30%;
+  top: 10%;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(243, 160, 6);
+  left: 60%;
+  top: 10%;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(221, 160, 221, 0.3);
+  left: 80%;
+  top: 50%;
+}
 
 .circle-4 {
   width: 90px;
   height: 90px;
-  background-color: rgba(240, 8, 240, 0.3);
+  background-color: rgba(244, 164, 96, 0.3);
   left: 40%;
   top: 60%;
 }
-.centered-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.circle-container {
+  position: absolute;
+  width: 100%;
   height: 100%;
+  overflow: visible;
+  z-index: -2;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
 }

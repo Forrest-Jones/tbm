@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Landing from "./Landing.jsx";
-import Nav from "./Nav.jsx";
 import UserDashboard from "./UserDashboard.jsx";
 import LearnMore from "./LearnMore.jsx";
 import Donatenow from "./Donatenow.jsx";
@@ -10,6 +9,8 @@ import Organizations from "./Organizations.jsx";
 import DarkModeContext from "./DarkModeContext";
 import SignUpPage from "./SignUpPage.jsx";
 import EndowmentManagement from "./EndowmentManagement.jsx";
+import Nav from "./Nav.jsx";
+import './reset.css';
 
 
 function App() {
@@ -20,17 +21,19 @@ function App() {
       <Router>
         <div>
           <Nav />
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route path="/signup" component={SignUpPage} />
-            <Route path="/dashboard" render={(props) => <UserDashboard user={props.location.state} />} />
-            <Route path="/organizations/:id/learnmore" component={LearnMore} />
-            <Route path="/organizations/:id/donatenow" component={Donatenow} />
-            <Route path="/donatenow" component={Donatenow} />
-            <Route path="/about" component={About} />
-            <Route path="/organizations" component={Organizations} />
-            <Route path="/endowmentmanagement" component={EndowmentManagement} /> {/* Add this new route */}
-          </Switch>
+          <div className="content-wrapper">
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route path="/signup" component={SignUpPage} />
+              <Route path="/dashboard" render={(props) => <UserDashboard user={props.location.state} />} />
+              <Route path="/organizations/:id/learnmore" component={LearnMore} />
+              <Route path="/organizations/:id/donatenow" component={Donatenow} />
+              <Route path="/donatenow" component={Donatenow} />
+              <Route path="/about" component={About} />
+              <Route path="/organizations" component={Organizations} />
+              <Route path="/endowmentmanagement" component={EndowmentManagement} />
+            </Switch>
+          </div>
         </div>
       </Router>
     </DarkModeContext.Provider>
@@ -38,3 +41,5 @@ function App() {
 }
 
 export default App;
+
+

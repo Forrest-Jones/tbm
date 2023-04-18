@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import DarkModeContext from "./DarkModeContext";
-import './Landing.css';
+import "./Landing.css";
 
 function Landing({ user, setUser, organizations }) {
   const history = useHistory();
@@ -27,8 +27,6 @@ function Landing({ user, setUser, organizations }) {
               and create lasting, positive change in their communities for Jesus Christ.
             </p>
           </div>
-        </div>
-        <div>
         </div>
       </div>
     </div>

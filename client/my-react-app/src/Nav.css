@@ -1,4 +1,9 @@
 /* Nav.css */
+.content-wrapper {
+  padding-top: 2in; /* adjust this value as needed */
+  border-top: 1px solid #ccc; /* optional: add a border to visually separate the content from the navigation bar */
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -17,17 +22,13 @@ nav {
   width: 100%;
 }
 
-nav ul {
-  display: flex;
-  list-style-type: none;
-  margin: 50px;
-  padding: 50px;
-}
 
 
 nav li {
   margin: 0;
 }
+
+
 
 nav a {
   text-decoration: none;

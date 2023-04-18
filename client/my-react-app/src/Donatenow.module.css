@@ -15,9 +15,9 @@ body {
 
 .glass-pane {
   position: center;
-  width: 70%;
-  height: 100%;
-  background-color: rgba(3, 79, 79, 0.5);
+  width: 90%;
+  height: 90%;
+  background-color: rgba(148, 7, 242, 0.616);
   border-radius: 10px;
   left: 50%;
   top: 50%;

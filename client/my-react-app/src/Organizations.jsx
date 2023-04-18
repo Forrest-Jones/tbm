@@ -70,52 +70,59 @@ function Organizations() {
 };
 
 return (
-  <div>
-    <div>
-      <OrganizationForm onSubmit={(newData) => handleCreateOrganization(newData)} />
-    </div>
-    <h1>Organizations</h1>
-    <div className="organizations-list">
-      {organizations.map((organization) => (
-        <div key={organization.id} className="organization-card">
-          <div className="organization-card-content">
-            <img
-              className="organization-logo"
-              src={organization.logo ? organization.logo : stockImage}
-              alt={`${organization.name} logo`}
-              onClick={() => handleOrganizationClick(organization.id)}
-            />
-            <h3 className="organization-name">{organization.name}</h3>
-            <p className="organization-tagline">{organization.tagline}</p>
+  <div className="background">
+    <div className="organization-cards-wrapper">
+      <div className="card">
+        <div className="innercard">
+          <div>
+            <OrganizationForm onSubmit={(newData) => handleCreateOrganization(newData)} />
           </div>
-          <div className="buttons-row">
+          <h1>Organizations</h1>
+          <div className="organizations-list">
+            {organizations.map((organization) => (
+              <div key={organization.id} className="organization-card">
+                <div className="organization-card-content">
+                  <img
+                    className="organization-logo"
+                    src={organization.logo ? organization.logo : stockImage}
+                    alt={`${organization.name} logo`}
+                    onClick={() => handleOrganizationClick(organization.id)}
+                  />
+                  <h3 className="organization-name">{organization.name}</h3>
+                  <p className="organization-tagline">{organization.tagline}</p>
+                </div>
+                <div className="buttons-row">
+                </div>
+                <button className="delete-organization" onClick={() => handleDeleteOrganization(organization.id)}>Delete</button>
+              </div>
+            ))}
           </div>
-          <button className="delete-organization" onClick={() => handleDeleteOrganization(organization.id)}>Delete</button>
-        </div>
-      ))}
-    </div>
-    {selectedOrganization && (
-      <div className="selected-organization">
-        {showUpdateForm ? (
-          <UpdateOrganizationForm
-            organization={selectedOrganization}
-            onUpdate={handleUpdateOrganization}
-            onCancel={() => setShowUpdateForm(false)}
-          />
-        ) : (
-          <>
-            <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
-            <h2>{selectedOrganization.name}</h2>
-            <p>{selectedOrganization.description}</p>
-            <div className="button-container">
-              <button className="update-organization" onClick={() => setShowUpdateForm(true)}>Update Organization Info Here!</button>
+          {selectedOrganization && (
+            <div className="selected-organization">
+              {showUpdateForm ? (
+                <UpdateOrganizationForm
+                  organization={selectedOrganization}
+                  onUpdate={handleUpdateOrganization}
+                  onCancel={() => setShowUpdateForm(false)}
+                />
+              ) : (
+                <>
+                  <img src={selectedOrganization.logo} alt={`${selectedOrganization.name} logo`} />
+                  <h2>{selectedOrganization.name}</h2>
+                  <p>{selectedOrganization.description}</p>
+                  <div className="button-container">
+                    <button className="update-organization" onClick={() => setShowUpdateForm(true)}>Update Organization Info Here!</button>
+                  </div>
+                </>
+              )}
             </div>
-          </>
-        )}
+          )}
+        </div>
       </div>
-    )}
+    </div>
   </div>
 );
+}
 
 
 
@@ -186,6 +193,6 @@ function OrganizationForm({ onSubmit }) {
     </form>
   );
 }
-}
+
 export default Organizations;
 

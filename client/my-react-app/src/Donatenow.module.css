@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .donate-now-page {
   position: center;
   display: flex;
@@ -18,7 +22,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-75%, -75%);
-  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 20px 5px rgba(1, 64, 97, 0.5);
 }
 
 .page {
@@ -164,3 +168,10 @@ li {
     left: 0%;
     top: 15%;
   }
+  /* Donatenow.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}

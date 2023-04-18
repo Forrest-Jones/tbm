@@ -13,8 +13,7 @@
     "react-router-dom": "^5.3.4",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
-  },
-  "scripts": {
+  },  "scripts": {
     "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -10,7 +10,7 @@ import DarkModeContext from "./DarkModeContext";
 import SignUpPage from "./SignUpPage.jsx";
 import EndowmentManagement from "./EndowmentManagement.jsx";
 import Nav from "./Nav.jsx";
-import './reset.css';
+
 
 
 function App() {

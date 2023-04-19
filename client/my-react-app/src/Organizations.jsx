@@ -3,13 +3,13 @@ import stockImage from './stockImages/Jesus-image.jpg';
 import UpdateOrganizationForm from './UpdateOrganizationForm';
 import "./Organizations.css";
 
-
 const BASE_URL = "http://127.0.0.1:5000";
 
 function Organizations() {
   const [organizations, setOrganizations] = useState([]);
   const [selectedOrganization, setSelectedOrganization] = useState(null);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
   
   useEffect(() => {
     const fetchOrganizations = async () => {
@@ -24,50 +24,53 @@ function Organizations() {
     const response = await fetch(`${BASE_URL}/organizations/${id}`);
     const data = await response.json();
     setSelectedOrganization(data);
+    setIsUpdateSuccess(false); // Reset the update success flag
   };
 
   const handleDeleteOrganization = async (id) => {
     await fetch(`${BASE_URL}/organizations/${id}`, {
       method: "DELETE",
     });
-    };
+    setShowUpdateForm(false); // Close the update form
+    setIsUpdateSuccess(false); // Reset the update success flag
+  };
   
-
   const handleUpdateOrganization = async (id, updatedData) => {
     await fetch(`${BASE_URL}/organizations/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedData), // send updated data to server
+      body: JSON.stringify(updatedData),
     });
-
-    // fetch updated organization from server
+  
     const response = await fetch(`${BASE_URL}/organizations/${id}`);
     const updatedOrganization = await response.json();
-
-    // update selected organization in state
     setSelectedOrganization(updatedOrganization);
-
-    // update organizations list in state
+  
     const updatedOrganizations = organizations.map((org) =>
       org.id === id ? { ...org, ...updatedData } : org
     );
     setOrganizations(updatedOrganizations);
+    setShowUpdateForm(false); // Close the update form
+    setIsUpdateSuccess(true); // Set the update success flag
   };
+  
+    
 
   const handleCreateOrganization = async (newData) => {
-  const response = await fetch(`${BASE_URL}/organizations`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newData),
-  });
-  const data = await response.json();
-  setSelectedOrganization(data);
-  setOrganizations([{ ...newData, id: data.id }, ...organizations]);
-};
+    const response = await fetch(`${BASE_URL}/organizations`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newData),
+    });
+    const data = await response.json();
+    setSelectedOrganization(data);
+    setOrganizations([{ ...newData, id: data.id }, ...organizations]);
+  };
+
 
 return (
   <div className="background">

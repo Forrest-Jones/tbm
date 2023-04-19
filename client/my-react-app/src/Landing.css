@@ -1,94 +1,86 @@
-/* Landing.css */
-.page {
-  max-width: 1200px;
-  max-height: 500px;
-  margin: 0 auto;
+.homepage {
+  height: 100vh;
+  position: relative;
+  overflow: visible
 }
 
-.example {
-  margin-top: 20px;
-  margin-right: 40px;
-  margin-bottom: 20px;
-  margin-left: 40px;
+.content {
+  position: relative;
+  height: 50%;
 }
 
-.glass{
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border:1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-
-.glass-pane::before {
-  content: "";
-  display: circle;
+.glass-pane {
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  background-color: rgba(239, 232, 241, 0.1);
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(1, 31, 52, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-pane:hover {
+  transform: translate(-50%, -52%);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.circle-container {
+  position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  border-radius: 2000px;
-  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
-  animation: shimmer 0.5s infinite;
+  overflow: visible;
+  z-index: -1;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-50%);
-  }
-  500% {
-    transform: translateX(100%);
-  }
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px) brightness(120%);
 }
-
-/* ... rest of the code remains the same ... */
 
 .circle-1 {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(213, 169, 232, 0.3);
-  left: 30%;
+  width: 140px;
+  height: 140px;
+  background-color: rgba(255, 192, 203, 0.4);
+  left: 20%;
   top: 10%;
 }
 
 .circle-2 {
-  width: 200px;
-  height: 200px;
-  background-color: rgb(243, 160, 6);
-  left: 60%;
-  top: 10%;
+  width: 180px;
+  height: 180px;
+  background-color: rgba(216, 191, 216, 0.5);
+  left: 70%;
+  top: 5%;
 }
 
 .circle-3 {
-  width: 150px;
-  height: 150px;
-  background-color: rgba(221, 160, 221, 0.3);
-  left: 80%;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 192, 203, 0.6);
+  left: 70%;
   top: 50%;
 }
 
 .circle-4 {
   width: 90px;
   height: 90px;
-  background-color: rgba(244, 164, 96, 0.3);
+  background-color: rgba(216, 191, 216, 0.3);
   left: 40%;
-  top: 60%;
+  top: 80%;
 }
-.circle-container {
+/* Add this to your Landing.css */
+.background-video {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  z-index: -2;
-}
-
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(10px);
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2; /* Adjust z-index to make sure the video is below other elements */
+  object-fit: cover;
 }

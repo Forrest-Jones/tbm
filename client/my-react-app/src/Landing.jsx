@@ -9,6 +9,11 @@ function Landing({ user, setUser, organizations }) {
 
   return (
     <div className={`homepage${darkMode ? " dark" : ""}`}>
+      {/* Add the video tag */}
+      <video className="background-video" autoPlay loop muted>
+        <source src="/videos/pexels-emirkhan-bal-4824781-3840x2160-30fps.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className={`content${darkMode ? " dark" : ""}`}>
         <div className={`text-container glass-pane`}>
           <div className={`centered-text${darkMode ? " dark" : ""}`}>

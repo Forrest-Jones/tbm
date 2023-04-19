@@ -43,5 +43,3 @@ function Donatenow() {
 
 export default Donatenow;
 
-
-

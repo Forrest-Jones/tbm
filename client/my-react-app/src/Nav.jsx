@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import DarkModeContext from "./DarkModeContext";
 import "./Nav.css";
@@ -9,6 +9,13 @@ function Nav({ hideButtons }) {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+  };
+
+  // Add the loggedIn state and a toggle function
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const toggleLogin = () => {
+    setLoggedIn(!loggedIn);
   };
 
   return (
@@ -29,13 +36,19 @@ function Nav({ hideButtons }) {
               <Link to="/endowmentmanagement" onClick={() => history.push("/endowmentmanagement")}>$Endowment Management$</Link>
             </li>
             <li>
-            <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
+              <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
             </li>
           </>
         )}
         <li>
           <button className={`dark-mode-button${darkMode ? " dark" : ""}`} onClick={toggleDarkMode}>
             {darkMode ? "Light Mode" : "Dark Mode"}
+          </button>
+        </li>
+        {/* Add the login/logout button */}
+        <li>
+          <button onClick={toggleLogin}>
+            {loggedIn ? "Logout" : "Login"}
           </button>
         </li>
       </ul>

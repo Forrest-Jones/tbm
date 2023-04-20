@@ -23,8 +23,8 @@
 }
 
 .content-wrapper {
-  padding-top: 1in;
-  border-top: 1px solid #ccc;
+  padding-top: .5in;
+  border-top: 1px solid rgb(3, 68, 82);
 }
 
 nav {
@@ -101,3 +101,24 @@ nav li:before {
 nav li:hover:before {
   opacity: 10;
 }
+.text-container {
+  max-width: 800px; /* Adjust this value to your desired width */
+  margin: 0 auto;
+}
+nav .nav-login-button {
+  background-color: transparent;
+  border: none;
+  color: #ab47bc;
+  font-weight: 600;
+  padding: 0.5rem 1rem; /* Add padding to match other nav buttons */
+  transition: color 0.3s;
+  animation: glow 3s infinite alternate;
+  cursor: pointer;
+  text-decoration: none; /* Add text-decoration to match other nav buttons */
+}
+
+nav .nav-login-button:hover {
+  color: #7b1fa2;
+  animation: none;
+}
+

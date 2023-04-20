@@ -9,10 +9,8 @@ function Landing({ user, setUser, organizations }) {
 
   return (
     <div className={`homepage${darkMode ? " dark" : ""}`}>
-      {/* Add the video tag */}
       <video className="background-video" autoPlay loop muted>
         <source src="/videos/pexels-emirkhan-bal-4824781-3840x2160-30fps.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
       <div className={`content${darkMode ? " dark" : ""}`}>
         <div className={`text-container glass-pane`}>
@@ -32,12 +30,6 @@ function Landing({ user, setUser, organizations }) {
               and create lasting, positive change in their communities for Jesus Christ.
             </p>
           </div>
-        </div>
-        <div className="circle-container">
-          <div className="circle circle-1"></div>
-          <div className="circle circle-2"></div>
-          <div className="circle circle-3"></div>
-          <div className="circle circle-4"></div>
         </div>
       </div>
     </div>

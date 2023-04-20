@@ -1,7 +1,42 @@
 .about-page {
+  position: relative;
+  padding: 2rem;
+  margin-left: 3in;
+  margin-right: 3in;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2; /* Adjust z-index to make sure the video is below other elements */
+  object-fit: cover;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease;
+}
+
+.glass-pane {
+  backdrop-filter: blur(10px);
+  background-color: rgba(155, 137, 244, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: calc(100% - 5in); /* Add this line to set width */
+  margin: 0 auto; /* Add this line to center the pane */
+}
+
+.about-page {
     position: relative;
-    background: linear-gradient(135deg, #03e9f6 0%, #038ff4 100%);
-    overflow: visible;
+    background: linear-gradient(135deg, #011718 0%, #012d2e 100%);
+    overflow: hidden;
     padding: 4rem 1rem;
   }
   
@@ -12,36 +47,25 @@
     padding: 2rem;
   }
   
-  .about-page h1, .about-page h2 {
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
-    color: #020116;
-  }
-  
-  .about-page h1 {
-    font-size: 2.5rem;
-    margin: 4rem 0;
-  }
-  
-  .about-page h2 {
-    font-size: 2rem;
-    margin: 2rem 0 1rem;
-  }
-  
-  .about-page p, .about-page ul {
-    font-family: 'Roboto', sans-serif;
-    color: #3d5654;
-    line-height: 1.6;
-  }
-  
+  .about-page h1,
+  .about-page h2,
+  .about-page p,
   .about-page ul {
-    padding-left: 2.5rem;
-  }
-  
-  .about-page li {
-    margin-bottom: 1rem;
-  }
-  
+  background: rgba(98, 225, 225, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease;
+}
+
+  .about-page h1:hover,
+  .about-page h2:hover,
+  .about-page p:hover,
+  .about-page ul:hover {
+  transform: rotate(1deg);
+  box-shadow: 0 4px 6px rgb(1, 59, 73), 0 10px 3px rgba(0, 0, 0, 0.08);
+}
   .circle {
     position: absolute;
     width: 950px;

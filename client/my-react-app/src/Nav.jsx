@@ -38,6 +38,11 @@ function Nav({ hideButtons }) {
             <li>
               <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
             </li>
+            <li>
+          <button className="nav-login-button" onClick={toggleLogin}>
+            {loggedIn ? "Logout" : "Login"}
+          </button>
+        </li>
           </>
         )}
         <li>
@@ -46,11 +51,6 @@ function Nav({ hideButtons }) {
           </button>
         </li>
         {/* Add the login/logout button */}
-        <li>
-          <button onClick={toggleLogin}>
-            {loggedIn ? "Logout" : "Login"}
-          </button>
-        </li>
       </ul>
     </nav>
   );

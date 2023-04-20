@@ -7,17 +7,14 @@
   object-fit: cover;
   z-index: -1;
 }
-
-
-
 .organization-cards-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
-  
-  .organizations-list {
+    .organizations-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -33,6 +30,8 @@
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
+    border: 2px solid #00080c;
+    box-shadow: 10px rgba(174, 209, 247, 0.5);
   }
   
   .organization-card:hover {
@@ -241,7 +240,7 @@
   
   .selected-organization p {
     font-size: 0.9rem;
-    color: #ffffff;
+    color: #110ae8;
     text-align: center;
     margin-bottom: 1rem;
   }
@@ -271,5 +270,25 @@
   .selected-organization .delete-organization:hover,
   .selected-organization .update-organization:hover {
     background-color: #9c27b0;
+  }
+  .text-box-container {
+    background-color: rgba(172, 193, 239, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(196, 233, 13, 0.1);
+    margin-bottom: 1rem;
+    
+  }
+  .organization-title {
+    padding: 0.5rem 1rem;
+    background-color: rgba(172, 193, 239, 0.9);
+
+    border-radius: 10px;
+    color: #3b2301;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    opacity: 100;
+    transition: opacity 0.5s ease-in-out;
   }
   

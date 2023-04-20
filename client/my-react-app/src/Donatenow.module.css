@@ -22,11 +22,14 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-75%, -75%);
-  box-shadow: 10px 10px 20px 5px rgba(1, 45, 69, 0.5);
+  box-shadow: 10px 10px 20px 10px rgba(1, 45, 69, 0.5); /* increased the blur radius to 10px */
 }
 
 .page {
   padding: 0rem; /* Added padding to spread out the text */
+}
+a {
+  color: aqua;
 }
 
 h1 {

@@ -1,0 +1,21 @@
+.login-logout {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-btn,
+  .logout-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .login-btn:hover,
+  .logout-btn:hover {
+    color: #63ea6c;
+  }
+  

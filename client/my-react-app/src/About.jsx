@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="about-page">
       <video className="background-video" autoPlay loop muted>
-        <source src="/videos/pexels-emirkhan-bal-4824781-3840x2160-30fps.mp4" type="video/mp4" />
+        <source src="/videos/stock-footage-black-and-white-vintage-close-view-of-watch-mechanism.webm" type="video/webm" />
       </video>
       <h1 className="glass">About The Blessing Machine</h1>
 
@@ -27,8 +27,8 @@ function About() {
       <h2 className="glass">Solution</h2>
       <p className="glass">
         The Blessing Machine will integrate advanced technologies and industry best practices to create a state-of-the-art fundraising
-     </p>
-      </div>
+      </p>
+    </div>
   );
 }
 

@@ -78,28 +78,30 @@ function Organizations() {
       <div className="organization-cards-wrapper">
         <div className="card">
           <div className="innercard">
-            <div>
+            <div className="text-box-container">
               <OrganizationForm onSubmit={(newData) => handleCreateOrganization(newData)} />
             </div>
-            <h1>Organizations</h1>
-            <div className="organizations-list">
-              {organizations.map((organization) => (
-                <div key={organization.id} className="organization-card">
-                  <div className="organization-card-content">
-                    <img
-                      className="organization-logo"
-                      src={organization.logo ? organization.logo : stockImage}
-                      alt={`${organization.name} logo`}
-                      onClick={() => handleOrganizationClick(organization.id)}
-                    />
-                    <h3 className="organization-name">{organization.name}</h3>
-                    <p className="organization-tagline">{organization.tagline}</p>
+            <h1 className="organization-title">Organizations</h1>
+            <div className="text-box-container">
+              <div className="organizations-list">
+                {organizations.map((organization) => (
+                  <div key={organization.id} className="organization-card">
+                    <div className="organization-card-content">
+                      <img
+                        className="organization-logo"
+                        src={organization.logo ? organization.logo : stockImage}
+                        alt={`${organization.name} logo`}
+                        onClick={() => handleOrganizationClick(organization.id)}
+                      />
+                      <h3 className="organization-name">{organization.name}</h3>
+                      <p className="organization-tagline">{organization.tagline}</p>
+                    </div>
+                    <div className="buttons-row">
+                    </div>
+                    <button className="delete-organization" onClick={() => handleDeleteOrganization(organization.id)}>Delete</button>
                   </div>
-                  <div className="buttons-row">
-                  </div>
-                  <button className="delete-organization" onClick={() => handleDeleteOrganization(organization.id)}>Delete</button>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             {selectedOrganization && (
               <div className="selected-organization">
@@ -126,6 +128,7 @@ function Organizations() {
       </div>
     </div>
   );
+  
   }
   function OrganizationForm({ onSubmit }) {
     const [name, setName] = useState("");

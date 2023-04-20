@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import DarkModeContext from "./DarkModeContext";
+
 import "./Nav.css";
 
-function Nav({ hideButtons }) {
+function Nav({ hideButtons, isOnLandingPage }) {
   const history = useHistory();
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
 
@@ -18,8 +19,10 @@ function Nav({ hideButtons }) {
     setLoggedIn(!loggedIn);
   };
 
+  const navClassNames = `nav${isOnLandingPage ? " nav-on-landing-page" : ""}`;
+
   return (
-    <nav>
+    <nav className={navClassNames}>
       <ul className="nav-items">
         {!hideButtons && (
           <>
@@ -39,18 +42,25 @@ function Nav({ hideButtons }) {
               <Link to="/donatenow" onClick={() => history.push("/donatenow")}>Donate Now!</Link>
             </li>
             <li>
-          <button className="nav-login-button" onClick={toggleLogin}>
-            {loggedIn ? "Logout" : "Login"}
-          </button>
-        </li>
+              {!loggedIn ? (
+                <Link to="/organizations">
+                  <button className="nav-login-button nav-button" onClick={toggleLogin}>
+                    Login
+                  </button>
+                </Link>
+              ) : (
+                <button className="nav-login-button nav-button" onClick={toggleLogin}>
+                  Logout
+                </button>
+              )}
+            </li>
           </>
         )}
         <li>
-          <button className={`dark-mode-button${darkMode ? " dark" : ""}`} onClick={toggleDarkMode}>
+          <button className={`nav-button dark-mode-button${darkMode ? " dark" : ""}`} onClick={toggleDarkMode}>
             {darkMode ? "Light Mode" : "Dark Mode"}
           </button>
         </li>
-        {/* Add the login/logout button */}
       </ul>
     </nav>
   );
